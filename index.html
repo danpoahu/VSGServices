@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanto Services Group - Handyman Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        .logo-container {
+            width: 48px;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Vanto Services Group" class="logo-container">
+                    <div>
+                        <div class="text-lg font-bold">Vanto Services Group</div>
+                        <div class="text-xs text-gray-400">VSG</div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 transition-colors">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                
+                <button onclick="scrollToContact()" class="hidden lg:block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors">
+                    Book
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-gray-800 text-white shadow-lg">
+        <div class="px-4 py-4 space-y-3">
+            <button onclick="scrollToServices()" class="block w-full text-left py-2 hover:text-emerald-400 transition-colors">
+                Services
+            </button>
+            <button onclick="scrollToContact()" class="block w-full text-left py-2 hover:text-emerald-400 transition-colors">
+                Contact
+            </button>
+            <button onclick="scrollToContact()" class="w-full px-6 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors">
+                Book
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-900 text-white py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Handyman help, hassle-free results
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Quick repairs, upgrades, and honest service. We handle home and business fixes so you can get back to your day.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="scrollToContact()" class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors shadow-lg">
+                            Get started
+                        </button>
+                        <button onclick="scrollToServices()" class="px-8 py-3 border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg font-medium transition-colors">
+                            Our services
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Professional handyman" class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Fast fixes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Fast fixes, zero stress</h3>
+                        <p class="text-gray-600 mb-4">Got leaks, squeaks, and broken bits we fix? We handle quick repairs for homes and businesses so you can get back to your day.</p>
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" alt="Renovations" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Spaces refreshed your way</h3>
+                        <p class="text-gray-600 mb-4">Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.</p>
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Trusted service" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
+                        <p class="text-gray-600 mb-4">We bring top-notch work and friendly service so you can relax knowing it's done right.</p>
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" alt="Concrete repair" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Fast Concrete Repair</h3>
+                        <p class="text-gray-600 mb-4">Cracks, chips, or uneven slabs? We provide reliable concrete repairs that last.</p>
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1590673846749-e2f9f8d2e8d0?w=500&q=80" alt="Concrete sawing" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
+                        <p class="text-gray-600 mb-4">Precise cuts for any project. Our concrete sawing services handle structural openings, demo and more, safely and efficiently.</p>
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500&q=80" alt="Professional service" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
+                        <p class="text-gray-600 mb-4">Professional work, transparent pricing, and service that puts you first. We're here to help.</p>
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Book
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+                <div class="flex flex-col lg:flex-row items-center gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-bold mb-4">Handyman help, just a call away</h2>
+                        <div class="flex items-center gap-2 text-gray-600 mb-6">
+                            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <a href="tel:+18081234567" class="hover:text-emerald-600 transition-colors">+1 808 123 4567</a>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80" alt="Tools" class="w-64 h-48 object-cover rounded-xl shadow-lg">
+                    </div>
+                </div>
+                <button onclick="scrollToContact()" class="mt-6 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                    Get in touch
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16">Help is just a call away</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Repairs -->
+                <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    <h3 class="text-xl font-bold mb-3">Repairs</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Fix leaks, squeaks, and broken bits fast. We handle quick repairs for homes and businesses so you can get back to your day with hassle-free results.</p>
+                    <a href="tel:+18081234567" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        Call
+                    </a>
+                </div>
+
+                <!-- Concrete Sawing -->
+                <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1590673846749-e2f9f8d2e8d0?w=400&q=80" alt="Concrete Sawing" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Precision cuts for any project. Our concrete sawing services handle structural openings, demo safely and efficiently.</p>
+                    <a href="tel:+18081234567" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        Call
+                    </a>
+                </div>
+
+                <!-- Maintenance -->
+                <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80" alt="Maintenance" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    <h3 class="text-xl font-bold mb-3">Maintenance</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Keep things running smoothly. We offer regular maintenance so you can relax and enjoy your space.</p>
+                    <a href="tel:+18081234567" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        Call
+                    </a>
+                </div>
+
+                <!-- Emergency -->
+                <div class="text-center">
+                    <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&q=80" alt="Emergency" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    <h3 class="text-xl font-bold mb-3">Emergency</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Need urgent help? We're here for you 24/7. Fast, friendly service when you need it most.</p>
+                    <a href="tel:+18081234567" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4">Get in touch today</h2>
+            <p class="text-center text-gray-600 mb-12">Servicing all Vanto Services Group</p>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Contact us" class="w-full rounded-2xl shadow-xl mb-8">
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold mb-1">Email</div>
+                                <a href="mailto:vantoservicesgroup@gmail.com" class="text-emerald-600 hover:underline break-all">
+                                    vantoservicesgroup@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold mb-1">Phone</div>
+                                <a href="tel:+18081234567" class="text-emerald-600 hover:underline">
+                                    +1 808 123 4567
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold mb-1">Address</div>
+                                <div class="text-gray-600">
+                                    123 Main Street<br>
+                                    Honolulu, HI 96813
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Contact Form</h3>
+                    
+                    <div id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                First and Last name
+                            </label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="John Smith">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Email Address
+                            </label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="john@example.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Phone Number
+                            </label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all" placeholder="(808) 123-4567">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Please type your issue here
+                            </label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none" placeholder="Describe your project or issue..."></textarea>
+                        </div>
+
+                        <button onclick="submitForm()" class="w-full px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Submit
+                        </button>
+
+                        <div id="success-message" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800">
+                            Thank you! We'll get back to you soon.
+                        </div>
+
+                        <div id="error-message" class="hidden p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+                            Please fill in all required fields.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center space-y-4">
+                <div class="flex items-center space-x-3">
+                    <img src="logo.png" alt="Vanto Services Group" class="logo-container">
+                    <div>
+                        <div class="text-lg font-bold">Vanto Services Group</div>
+                        <div class="text-xs text-gray-400">VSG</div>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm">© 2025 Vanto Services Group</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            menu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('menu-icon').classList.remove('hidden');
+            document.getElementById('close-icon').classList.add('hidden');
+        }
+
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('menu-icon').classList.remove('hidden');
+            document.getElementById('close-icon').classList.add('hidden');
+        }
+
+        async function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const successMsg = document.getElementById('success-message');
+            const errorMsg = document.getElementById('error-message');
+            
+            // Hide messages
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+            
+            if (!name || !email || !message) {
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                // Firebase REST API submission
+                // Replace YOUR_PROJECT_ID with your actual Firebase project ID
+                const response = await fetch('https://firestore.googleapis.com/v1/projects/YOUR_PROJECT_ID/databases/(default)/documents/contact_submissions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        fields: {
+                            name: { stringValue: name },
+                            email: { stringValue: email },
+                            phone: { stringValue: phone },
+                            message: { stringValue: message },
+                            timestamp: { timestampValue: new Date().toISOString() },
+                            status: { stringValue: 'new' }
+                        }
+                    })
+                });
+
+                if (response.ok) {
+                    successMsg.classList.remove('hidden');
+                    document.getElementById('name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('phone').value = '';
+                    document.getElementById('message').value = '';
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                errorMsg.textContent = 'Something went wrong. Please try again.';
+                errorMsg.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
