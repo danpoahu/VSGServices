@@ -16,18 +16,35 @@
             scroll-behavior: smooth;
         }
         
-        /* Let iOS Safari handle text sizing naturally */
+        /* Mobile-first: Start with larger sizes */
         html {
-            -webkit-text-size-adjust: 100%;
+            font-size: 18px;
         }
         
         body {
-            font-size: 1rem;
+            font-size: 18px;
+            line-height: 1.6;
         }
         
-        /* Make sure all text is at least 16px to prevent iOS zoom on input */
+        /* Scale down for desktop */
+        @media (min-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+            body {
+                font-size: 16px;
+            }
+        }
+        
+        /* Ensure inputs don't trigger zoom */
         input, textarea, select, button {
-            font-size: 16px;
+            font-size: 18px;
+        }
+        
+        @media (min-width: 768px) {
+            input, textarea, select, button {
+                font-size: 16px;
+            }
         }
         
         .logo-container {
