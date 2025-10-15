@@ -15,17 +15,26 @@
     <style>
         * {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: none !important;
+            text-size-adjust: none !important;
         }
         
-        /* Force minimum 16px on iOS */
+        /* Force minimum 16px on everything */
         html {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
+            font-size: 16px !important;
         }
         
         body {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
+            font-size: 16px !important;
+        }
+        
+        /* Override ALL Tailwind text classes for mobile */
+        p, div, span, a, label, li, td, th {
+            font-size: 16px !important;
+        }
+        
+        input, textarea, select, button {
+            font-size: 16px !important;
         }
         
         .logo-container {
@@ -48,11 +57,6 @@
         }
         .service-card-description {
             flex: 1;
-        }
-        
-        /* Mobile text overrides */
-        input, textarea, select {
-            font-size: 16px !important;
         }
     </style>
 </head>
@@ -137,7 +141,7 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Fast fixes, zero stress</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Got leaks, squeaks, and broken bits we fix? We handle quick repairs for homes and businesses so you can get back to your day.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
                             Book
                         </button>
                     </div>
@@ -149,7 +153,7 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Spaces refreshed your way</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
                             Book
                         </button>
                     </div>
@@ -161,7 +165,7 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
                         <p class="text-gray-600 mb-4 service-card-description">We bring top-notch work and friendly service so you can relax knowing it's done right.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
                             Book
                         </button>
                     </div>
@@ -173,7 +177,7 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Fast Concrete Repair</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Cracks, chips, or uneven slabs? We provide reliable concrete repairs that last.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
                             Book
                         </button>
                     </div>
@@ -185,7 +189,7 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Precise cuts for any project. Our concrete sawing services handle structural openings, demo and more, safely and efficiently.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
                             Book
                         </button>
                     </div>
@@ -197,7 +201,7 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Professional work, transparent pricing, and service that puts you first. We're here to help.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
                             Book
                         </button>
                     </div>
