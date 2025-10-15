@@ -127,7 +127,7 @@
 
                 <!-- Service 2 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" alt="Renovations" class="w-full h-48 object-cover">
+                    <img src="vsg33.jpeg" alt="Renovations" class="w-full h-48 object-cover">
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Spaces refreshed your way</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.</p>
@@ -220,7 +220,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Repairs -->
                 <div class="flex flex-col h-full">
-                    <img src="vsg9.jpg" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    <img src="vsg34.jpeg" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     <h3 class="text-xl font-bold mb-3">Repairs</h3>
                     <p class="text-gray-600 mb-4 text-sm flex-1">Fix leaks, squeaks, and broken bits fast. We handle quick repairs for homes and businesses so you can get back to your day with hassle-free results.</p>
                     <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors text-center">
@@ -385,21 +385,26 @@
     </footer>
 
     <script>
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCOUxfMyfD5_Q08QE4eIHCuF69k4fD99kw",
-            authDomain: "vantosg-65652.firebaseapp.com",
-            projectId: "vantosg-65652",
-            storageBucket: "vantosg-65652.firebasestorage.app",
-            messagingSenderId: "531627484684",
-            appId: "1:531627484684:web:8724b47a144fe4e0e3b029",
-            measurementId: "G-69Q2DH32WC"
-        };
+        // Wait for Firebase to load
+        let auth, db;
+        
+        window.addEventListener('load', function() {
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyCOUxfMyfD5_Q08QE4eIHCuF69k4fD99kw",
+                authDomain: "vantosg-65652.firebaseapp.com",
+                projectId: "vantosg-65652",
+                storageBucket: "vantosg-65652.firebasestorage.app",
+                messagingSenderId: "531627484684",
+                appId: "1:531627484684:web:8724b47a144fe4e0e3b029",
+                measurementId: "G-69Q2DH32WC"
+            };
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.firestore();
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            auth = firebase.auth();
+            db = firebase.firestore();
+        });
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
