@@ -16,29 +16,30 @@
             scroll-behavior: smooth;
         }
         
-        /* Mobile-first: Start with larger sizes */
+        /* CRITICAL: Prevent iOS Safari from auto-scaling text on orientation change */
         html {
-            font-size: 18px;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
         
+        /* Mobile-first: Start with larger sizes for portrait */
         body {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1.6;
         }
         
-        /* Scale down for desktop */
+        /* Scale down for larger screens */
         @media (min-width: 768px) {
-            html {
-                font-size: 16px;
-            }
             body {
                 font-size: 16px;
             }
         }
         
-        /* Ensure inputs don't trigger zoom */
+        /* Ensure inputs are big enough */
         input, textarea, select, button {
-            font-size: 18px;
+            font-size: 20px;
         }
         
         @media (min-width: 768px) {
