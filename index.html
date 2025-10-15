@@ -15,27 +15,25 @@
     <style>
         * {
             scroll-behavior: smooth;
+        }
+        
+        /* FORCE all text to use pixels, not rem */
+        html, body {
+            font-size: 16px !important;
             -webkit-text-size-adjust: none !important;
-            text-size-adjust: none !important;
         }
         
-        /* Force minimum 16px on everything */
-        html {
-            font-size: 16px !important;
-        }
-        
-        body {
-            font-size: 16px !important;
-        }
-        
-        /* Override ALL Tailwind text classes for mobile */
-        p, div, span, a, label, li, td, th {
-            font-size: 16px !important;
-        }
-        
-        input, textarea, select, button {
-            font-size: 16px !important;
-        }
+        /* Override EVERY Tailwind text class */
+        .text-xs { font-size: 12px !important; }
+        .text-sm { font-size: 14px !important; }
+        .text-base { font-size: 16px !important; }
+        .text-lg { font-size: 18px !important; }
+        .text-xl { font-size: 20px !important; }
+        .text-2xl { font-size: 24px !important; }
+        .text-3xl { font-size: 30px !important; }
+        .text-4xl { font-size: 36px !important; }
+        .text-5xl { font-size: 48px !important; }
+        .text-6xl { font-size: 60px !important; }
         
         .logo-container {
             width: 75px;
@@ -141,9 +139,11 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Fast fixes, zero stress</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Got leaks, squeaks, and broken bits we fix? We handle quick repairs for homes and businesses so you can get back to your day.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
-                            Book
-                        </button>
+                        <div class="flex justify-center">
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                                Book
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -153,9 +153,11 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Spaces refreshed your way</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
-                            Book
-                        </button>
+                        <div class="flex justify-center">
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                                Book
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -165,9 +167,11 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
                         <p class="text-gray-600 mb-4 service-card-description">We bring top-notch work and friendly service so you can relax knowing it's done right.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
-                            Book
-                        </button>
+                        <div class="flex justify-center">
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                                Book
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -177,9 +181,11 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Fast Concrete Repair</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Cracks, chips, or uneven slabs? We provide reliable concrete repairs that last.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
-                            Book
-                        </button>
+                        <div class="flex justify-center">
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                                Book
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -189,9 +195,11 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Precise cuts for any project. Our concrete sawing services handle structural openings, demo and more, safely and efficiently.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
-                            Book
-                        </button>
+                        <div class="flex justify-center">
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                                Book
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -201,9 +209,11 @@
                     <div class="p-6 service-card-content">
                         <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
                         <p class="text-gray-600 mb-4 service-card-description">Professional work, transparent pricing, and service that puts you first. We're here to help.</p>
-                        <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors self-start">
-                            Book
-                        </button>
+                        <div class="flex justify-center">
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                                Book
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -245,9 +255,11 @@
                     <img src="vsg34.jpeg" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     <h3 class="text-xl font-bold mb-3">Repairs</h3>
                     <p class="text-gray-600 mb-4 text-sm flex-1">Fix leaks, squeaks, and broken bits fast. We handle quick repairs for homes and businesses so you can get back to your day with hassle-free results.</p>
-                    <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors text-center">
-                        Call
-                    </a>
+                    <div class="flex justify-center">
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Call
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Concrete Sawing -->
@@ -255,9 +267,11 @@
                     <img src="vsg6.jpg" alt="Concrete Sawing" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
                     <p class="text-gray-600 mb-4 text-sm flex-1">Precision cuts for any project. Our concrete sawing services handle structural openings, demo safely and efficiently.</p>
-                    <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors text-center">
-                        Call
-                    </a>
+                    <div class="flex justify-center">
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Call
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Walkway Repair -->
@@ -265,9 +279,11 @@
                     <img src="vsg5.jpg" alt="Walkway Repair" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     <h3 class="text-xl font-bold mb-3">Walkway Repair</h3>
                     <p class="text-gray-600 mb-4 text-sm flex-1">Cracked or uneven walkways? We restore concrete pathways to like-new condition, improving safety and curb appeal for your home or business.</p>
-                    <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors text-center">
-                        Call
-                    </a>
+                    <div class="flex justify-center">
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Call
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Emergency -->
@@ -275,9 +291,11 @@
                     <img src="vsg10.jpg" alt="Emergency" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     <h3 class="text-xl font-bold mb-3">Emergency</h3>
                     <p class="text-gray-600 mb-4 text-sm flex-1">Need urgent help? We're here for you 24/7. Fast, friendly service when you need it most.</p>
-                    <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors text-center">
-                        Call
-                    </a>
+                    <div class="flex justify-center">
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
+                            Call
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
