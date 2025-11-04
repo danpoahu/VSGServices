@@ -79,8 +79,8 @@
                 <div class="flex items-center space-x-3">
                     <img src="logo.png" alt="Vanto Services Group" class="logo-container">
                     <div>
-                        <div class="text-lg font-bold">Vanto Services Group</div>
-                        <div class="text-xs text-gray-400">VSG</div>
+                        <div class="text-lg font-bold" data-content-id="company-name">Vanto Services Group</div>
+                        <div class="text-xs text-gray-400" data-content-id="company-short">VSG</div>
                     </div>
                 </div>
                 
@@ -120,10 +120,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight" data-content-id="hero-title">
                         Handyman help, hassle-free results
                     </h1>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed" data-content-id="hero-subtitle">
                         Quick repairs, upgrades, and honest service. We handle home and business fixes so you can get back to your day.
                     </p>
                     <div class="flex flex-wrap gap-4">
@@ -317,8 +317,8 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-4">Get in touch today</h2>
-            <p class="text-center text-gray-600 mb-12">Servicing Fountain, CO and surrounding areas</p>
+            <h2 class="text-4xl font-bold text-center mb-4" data-content-id="contact-title">Get in touch today</h2>
+            <p class="text-center text-gray-600 mb-12" data-content-id="contact-subtitle">Servicing Fountain, CO and surrounding areas</p>
             
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div>
@@ -485,7 +485,70 @@
             firebase.initializeApp(firebaseConfig);
             auth = firebase.auth();
             db = firebase.firestore();
+            
+            // Load content from database
+            loadContent();
         });
+
+        async function loadContent() {
+            try {
+                // Load text content from Firestore
+                const contentSnapshot = await db.collection('website_content').get();
+                
+                const contentMap = {};
+                contentSnapshot.forEach(doc => {
+                    contentMap[doc.id] = doc.data().content;
+                });
+                
+                // Map content IDs to their selectors
+                const mappings = {
+                    'hero-title': 'h1.text-4xl',
+                    'hero-subtitle': 'p.text-xl.text-gray-300',
+                    'contact-title': '#contact h2.text-4xl',
+                    'contact-subtitle': '#contact p.text-center.text-gray-600',
+                };
+                
+                // Update elements using mappings
+                for (const [contentId, selector] of Object.entries(mappings)) {
+                    if (contentMap[contentId]) {
+                        const element = document.querySelector(selector);
+                        if (element) {
+                            element.textContent = contentMap[contentId];
+                        }
+                    }
+                }
+                
+                // Also try to find elements with data-content-id attribute
+                contentSnapshot.forEach(doc => {
+                    const element = document.querySelector(`[data-content-id="${doc.id}"]`);
+                    if (element) {
+                        element.textContent = doc.data().content;
+                    }
+                });
+                
+                // Load images from Firestore
+                const imagesSnapshot = await db.collection('website_images').get();
+                imagesSnapshot.forEach(doc => {
+                    const element = document.querySelector(`[data-image-id="${doc.id}"]`);
+                    if (element) {
+                        const img = element.querySelector('img');
+                        if (img) {
+                            img.src = doc.data().url;
+                        }
+                    } else {
+                        // Try direct img selector
+                        const img = document.querySelector(`img[data-image-id="${doc.id}"]`);
+                        if (img) {
+                            img.src = doc.data().url;
+                        }
+                    }
+                });
+                
+                console.log('Content loaded from Firebase successfully');
+            } catch (error) {
+                console.log('Content loading from DB failed, using defaults:', error);
+            }
+        }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
