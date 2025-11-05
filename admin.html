@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>VSG Admin - Content Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -32,8 +29,6 @@
         .service-card { display: flex; flex-direction: column; height: 100%; }
         .service-card-content { flex: 1; display: flex; flex-direction: column; }
         .service-card-description { flex: 1; }
-        .loading-placeholder { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
-        @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         .editable-section {
             position: relative;
             padding: 8px;
@@ -155,21 +150,23 @@
         </div>
     </div>
 
-
     <!-- Header -->
     <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-3">
-                    <div data-image-id="logo class="editable-section cursor-pointer"> onclick="editImage('logo')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Logo" class="logo-container loading-placeholder">
-                    </div>
+                    <img src="logo.png" alt="Vanto Services Group" class="logo-container">
                     <div>
-                        <div class="editable-section text-lg font-bold" data-content-id="company-name" onclick="editContent('div class="text-lg font-bold" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</div>
-                        <div class="editable-section text-xs text-gray-400" data-content-id="company-short" onclick="editContent('div class="text-xs text-gray-400" ')"><span class="edit-indicator">✏️ Edit</span>...</div>
+                        <div class="text-lg font-bold editable-section" data-content-id="company-name" onclick="editContent('company-name')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Vanto Services Group
+                        </div>
+                        <div class="text-xs text-gray-400 editable-section" data-content-id="company-short" onclick="editContent('company-short')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            VSG
+                        </div>
                     </div>
                 </div>
-                
                 <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 transition-colors">
                     <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -178,10 +175,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-                
-                <button onclick="scrollToContact()" class="hidden lg:block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors">
-                    Book
-                </button>
+                <button onclick="scrollToContact()" class="hidden lg:block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors">Book</button>
             </div>
         </div>
     </header>
@@ -189,15 +183,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden lg:hidden bg-gray-800 text-white shadow-lg">
         <div class="px-4 py-4 space-y-3">
-            <button onclick="scrollToServices()" class="block w-full text-left py-2 hover:text-emerald-400 transition-colors">
-                Services
-            </button>
-            <button onclick="scrollToContact()" class="block w-full text-left py-2 hover:text-emerald-400 transition-colors">
-                Contact
-            </button>
-            <button onclick="scrollToContact()" class="w-full px-6 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors">
-                Book
-            </button>
+            <button onclick="scrollToServices()" class="block w-full text-left py-2 hover:text-emerald-400 transition-colors">Services</button>
+            <button onclick="scrollToContact()" class="block w-full text-left py-2 hover:text-emerald-400 transition-colors">Contact</button>
+            <button onclick="scrollToContact()" class="w-full px-6 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors">Book</button>
         </div>
     </div>
 
@@ -206,23 +194,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="editable-section text-4xl lg:text-6xl font-bold mb-6 leading-tight" data-content-id="hero-title" onclick="editContent('h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight" ')"><span class="edit-indicator">✏️ Edit</span>
-                        Loading...
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight editable-section" data-content-id="hero-title" onclick="editContent('hero-title')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Handyman help, hassle-free results
                     </h1>
-                    <p class="editable-section text-xl text-gray-300 mb-8 leading-relaxed" data-content-id="hero-subtitle" onclick="editContent('p class="text-xl text-gray-300 mb-8 leading-relaxed" ')"><span class="edit-indicator">✏️ Edit</span>
-                        Loading...
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed editable-section" data-content-id="hero-subtitle" onclick="editContent('hero-subtitle')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Quick repairs, upgrades, and honest service. We handle home and business fixes so you can get back to your day.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="scrollToContact()" class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors shadow-lg">
-                            Get started
-                        </button>
-                        <button onclick="scrollToServices()" class="px-8 py-3 border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg font-medium transition-colors">
-                            Our services
-                        </button>
+                        <button onclick="scrollToContact()" class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg font-medium transition-colors shadow-lg">Get started</button>
+                        <button onclick="scrollToServices()" class="px-8 py-3 border-2 border-white hover:bg-white hover:text-gray-900 rounded-lg font-medium transition-colors">Our services</button>
                     </div>
                 </div>
-                <div class="relative" data-image-id="hero-image">
-                    <img src="" alt="Hero" class="rounded-2xl shadow-2xl w-full h-auto loading-placeholder" style="min-height: 400px;">
+                <div class="relative editable-section cursor-pointer" data-image-id="hero-image" onclick="editImage('hero-image', 'vsg1.jpg')">
+                    <span class="edit-indicator">🖼️ Change</span>
+                    <img src="" class="loading-placeholder" alt="Professional handyman" class="rounded-2xl shadow-2xl w-full h-auto">
                 </div>
             </div>
         </div>
@@ -234,96 +221,126 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <div data-image-id="service1-image class="editable-section cursor-pointer"> onclick="editImage('service1-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Service 1" class="w-full h-48 object-cover loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="service1-image" onclick="editImage('service1-image', 'vsg2.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Fast fixes" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="editable-section text-xl font-bold mb-3" data-content-id="service1-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                        <p class="editable-section text-gray-600 mb-4 service-card-description" data-content-id="service1-desc" onclick="editContent('p class="text-gray-600 mb-4 service-card-description" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                        <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="service1-title" onclick="editContent('service1-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Fast fixes, zero stress
+                        </h3>
+                        <p class="text-gray-600 mb-4 service-card-description editable-section" data-content-id="service1-desc" onclick="editContent('service1-desc')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Got leaks, squeaks, and broken bits we fix? We handle quick repairs for homes and businesses so you can get back to your day.
+                        </p>
                         <div class="flex justify-center">
-                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                                Book
-                            </button>
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Book</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <div data-image-id="service2-image class="editable-section cursor-pointer"> onclick="editImage('service2-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Service 2" class="w-full h-48 object-cover loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="service2-image" onclick="editImage('service2-image', 'vsg33.jpeg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Renovations" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="editable-section text-xl font-bold mb-3" data-content-id="service2-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                        <p class="editable-section text-gray-600 mb-4 service-card-description" data-content-id="service2-desc" onclick="editContent('p class="text-gray-600 mb-4 service-card-description" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                        <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="service2-title" onclick="editContent('service2-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Spaces refreshed your way
+                        </h3>
+                        <p class="text-gray-600 mb-4 service-card-description editable-section" data-content-id="service2-desc" onclick="editContent('service2-desc')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.
+                        </p>
                         <div class="flex justify-center">
-                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                                Book
-                            </button>
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Book</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <div data-image-id="service3-image class="editable-section cursor-pointer"> onclick="editImage('service3-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Service 3" class="w-full h-48 object-cover loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="service3-image" onclick="editImage('service3-image', 'vsg11.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Trusted service" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="editable-section text-xl font-bold mb-3" data-content-id="service3-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                        <p class="editable-section text-gray-600 mb-4 service-card-description" data-content-id="service3-desc" onclick="editContent('p class="text-gray-600 mb-4 service-card-description" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                        <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="service3-title" onclick="editContent('service3-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Service you can trust
+                        </h3>
+                        <p class="text-gray-600 mb-4 service-card-description editable-section" data-content-id="service3-desc" onclick="editContent('service3-desc')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            We bring top-notch work and friendly service so you can relax knowing it's done right.
+                        </p>
                         <div class="flex justify-center">
-                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                                Book
-                            </button>
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Book</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <div data-image-id="service4-image class="editable-section cursor-pointer"> onclick="editImage('service4-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Service 4" class="w-full h-48 object-cover loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="service4-image" onclick="editImage('service4-image', 'vsg16.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Concrete repair" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="editable-section text-xl font-bold mb-3" data-content-id="service4-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                        <p class="editable-section text-gray-600 mb-4 service-card-description" data-content-id="service4-desc" onclick="editContent('p class="text-gray-600 mb-4 service-card-description" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                        <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="service4-title" onclick="editContent('service4-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Fast Concrete Repair
+                        </h3>
+                        <p class="text-gray-600 mb-4 service-card-description editable-section" data-content-id="service4-desc" onclick="editContent('service4-desc')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Cracks, chips, or uneven slabs? We provide reliable concrete repairs that last.
+                        </p>
                         <div class="flex justify-center">
-                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                                Book
-                            </button>
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Book</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 5 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <div data-image-id="service5-image class="editable-section cursor-pointer"> onclick="editImage('service5-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Service 5" class="w-full h-48 object-cover loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="service5-image" onclick="editImage('service5-image', 'vsg6.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Concrete sawing" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="editable-section text-xl font-bold mb-3" data-content-id="service5-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                        <p class="editable-section text-gray-600 mb-4 service-card-description" data-content-id="service5-desc" onclick="editContent('p class="text-gray-600 mb-4 service-card-description" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                        <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="service5-title" onclick="editContent('service5-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Concrete Sawing
+                        </h3>
+                        <p class="text-gray-600 mb-4 service-card-description editable-section" data-content-id="service5-desc" onclick="editContent('service5-desc')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Precision cuts for any project. Our concrete sawing services handle structural openings, demo and more, safely and efficiently.
+                        </p>
                         <div class="flex justify-center">
-                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                                Book
-                            </button>
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Book</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service 6 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <div data-image-id="service6-image class="editable-section cursor-pointer"> onclick="editImage('service6-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Service 6" class="w-full h-48 object-cover loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="service6-image" onclick="editImage('service6-image', 'vsg8.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Professional service" class="w-full h-48 object-cover">
                     </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="editable-section text-xl font-bold mb-3" data-content-id="service6-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                        <p class="editable-section text-gray-600 mb-4 service-card-description" data-content-id="service6-desc" onclick="editContent('p class="text-gray-600 mb-4 service-card-description" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                        <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="service6-title" onclick="editContent('service6-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Service you can trust
+                        </h3>
+                        <p class="text-gray-600 mb-4 service-card-description editable-section" data-content-id="service6-desc" onclick="editContent('service6-desc')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Professional work, transparent pricing, and service that puts you first. We're here to help.
+                        </p>
                         <div class="flex justify-center">
-                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                                Book
-                            </button>
+                            <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Book</button>
                         </div>
                     </div>
                 </div>
@@ -337,21 +354,26 @@
             <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
                 <div class="flex flex-col lg:flex-row items-center gap-8">
                     <div class="flex-1">
-                        <h2 class="editable-section text-3xl font-bold mb-4" data-content-id="cta-title" onclick="editContent('h2 class="text-3xl font-bold mb-4" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h2>
+                        <h2 class="text-3xl font-bold mb-4 editable-section" data-content-id="cta-title" onclick="editContent('cta-title')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Handyman help, just a call away
+                        </h2>
                         <div class="flex items-center gap-2 text-gray-600 mb-6">
                             <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
-                            <a href="tel:+18014401124" class="editable-section hover:text-emerald-600 transition-colors" data-content-id="cta-phone" onclick="editContent('a href="tel:+18014401124" class="hover:text-emerald-600 transition-colors" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</a>
+                            <a href="tel:+18014401124" class="hover:text-emerald-600 transition-colors editable-section" data-content-id="cta-phone" onclick="editContent('cta-phone')">
+                                <span class="edit-indicator">✏️ Edit</span>
+                                +1 801-440-1124
+                            </a>
                         </div>
                     </div>
-                    <div class="flex-shrink-0" data-image-id="cta-image">
-                        <img src="" alt="Tools" class="w-64 h-48 object-cover rounded-xl shadow-lg loading-placeholder">
+                    <div class="flex-shrink-0 editable-section cursor-pointer" data-image-id="cta-image" onclick="editImage('cta-image', 'vsg13.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Tools" class="w-64 h-48 object-cover rounded-xl shadow-lg">
                     </div>
                 </div>
-                <button onclick="scrollToContact()" class="mt-6 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                    Get in touch
-                </button>
+                <button onclick="scrollToContact()" class="mt-6 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Get in touch</button>
             </div>
         </div>
     </section>
@@ -359,61 +381,84 @@
     <!-- Detailed Services -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="editable-section text-4xl font-bold text-center mb-16" data-content-id="detailed-services-title" onclick="editContent('h2 class="text-4xl font-bold text-center mb-16" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h2>
+            <h2 class="text-4xl font-bold text-center mb-16 editable-section" data-content-id="detailed-services-title" onclick="editContent('detailed-services-title')">
+                <span class="edit-indicator">✏️ Edit</span>
+                Help is just a call away
+            </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Repairs -->
                 <div class="flex flex-col h-full">
-                    <div data-image-id="detail1-image class="editable-section cursor-pointer"> onclick="editImage('detail1-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="detail1-image" onclick="editImage('detail1-image', 'vsg34.jpeg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     </div>
-                    <h3 class="editable-section text-xl font-bold mb-3" data-content-id="detail1-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                    <p class="editable-section text-gray-600 mb-4 text-sm flex-1" data-content-id="detail1-desc" onclick="editContent('p class="text-gray-600 mb-4 text-sm flex-1" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                    <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="detail1-title" onclick="editContent('detail1-title')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Repairs
+                    </h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1 editable-section" data-content-id="detail1-desc" onclick="editContent('detail1-desc')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Fix leaks, squeaks, and broken bits fast. We handle quick repairs for homes and businesses so you can get back to your day with hassle-free results.
+                    </p>
                     <div class="flex justify-center">
-                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                            Call
-                        </a>
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Call</a>
                     </div>
                 </div>
 
                 <!-- Concrete Sawing -->
                 <div class="flex flex-col h-full">
-                    <div data-image-id="detail2-image class="editable-section cursor-pointer"> onclick="editImage('detail2-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Concrete Sawing" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="detail2-image" onclick="editImage('detail2-image', 'vsg6.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Concrete Sawing" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     </div>
-                    <h3 class="editable-section text-xl font-bold mb-3" data-content-id="detail2-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                    <p class="editable-section text-gray-600 mb-4 text-sm flex-1" data-content-id="detail2-desc" onclick="editContent('p class="text-gray-600 mb-4 text-sm flex-1" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                    <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="detail2-title" onclick="editContent('detail2-title')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Concrete Sawing
+                    </h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1 editable-section" data-content-id="detail2-desc" onclick="editContent('detail2-desc')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Precision cuts for any project. Our concrete sawing services handle structural openings, demo safely and efficiently.
+                    </p>
                     <div class="flex justify-center">
-                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                            Call
-                        </a>
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Call</a>
                     </div>
                 </div>
 
                 <!-- Walkway Repair -->
                 <div class="flex flex-col h-full">
-                    <div data-image-id="detail3-image class="editable-section cursor-pointer"> onclick="editImage('detail3-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Walkway Repair" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="detail3-image" onclick="editImage('detail3-image', 'vsg5.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Walkway Repair" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     </div>
-                    <h3 class="editable-section text-xl font-bold mb-3" data-content-id="detail3-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                    <p class="editable-section text-gray-600 mb-4 text-sm flex-1" data-content-id="detail3-desc" onclick="editContent('p class="text-gray-600 mb-4 text-sm flex-1" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                    <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="detail3-title" onclick="editContent('detail3-title')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Walkway Repair
+                    </h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1 editable-section" data-content-id="detail3-desc" onclick="editContent('detail3-desc')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Cracked or uneven walkways? We restore concrete pathways to like-new condition, improving safety and curb appeal for your home or business.
+                    </p>
                     <div class="flex justify-center">
-                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                            Call
-                        </a>
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Call</a>
                     </div>
                 </div>
 
                 <!-- Emergency -->
                 <div class="flex flex-col h-full">
-                    <div data-image-id="detail4-image class="editable-section cursor-pointer"> onclick="editImage('detail4-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Emergency" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg loading-placeholder">
+                    <div class="editable-section cursor-pointer" data-image-id="detail4-image" onclick="editImage('detail4-image', 'vsg10.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Emergency" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
                     </div>
-                    <h3 class="editable-section text-xl font-bold mb-3" data-content-id="detail4-title" onclick="editContent('h3 class="text-xl font-bold mb-3" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h3>
-                    <p class="editable-section text-gray-600 mb-4 text-sm flex-1" data-content-id="detail4-desc" onclick="editContent('p class="text-gray-600 mb-4 text-sm flex-1" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                    <h3 class="text-xl font-bold mb-3 editable-section" data-content-id="detail4-title" onclick="editContent('detail4-title')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Emergency
+                    </h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1 editable-section" data-content-id="detail4-desc" onclick="editContent('detail4-desc')">
+                        <span class="edit-indicator">✏️ Edit</span>
+                        Need urgent help? We're here for you 24/7. Fast, friendly service when you need it most.
+                    </p>
                     <div class="flex justify-center">
-                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                            Call
-                        </a>
+                        <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Call</a>
                     </div>
                 </div>
             </div>
@@ -423,13 +468,20 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="editable-section text-4xl font-bold text-center mb-4" data-content-id="contact-title" onclick="editContent('h2 class="text-4xl font-bold text-center mb-4" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</h2>
-            <p class="editable-section text-center text-gray-600 mb-12" data-content-id="contact-subtitle" onclick="editContent('p class="text-center text-gray-600 mb-12" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+            <h2 class="text-4xl font-bold text-center mb-4 editable-section" data-content-id="contact-title" onclick="editContent('contact-title')">
+                <span class="edit-indicator">✏️ Edit</span>
+                Get in touch today
+            </h2>
+            <p class="text-center text-gray-600 mb-12 editable-section" data-content-id="contact-subtitle" onclick="editContent('contact-subtitle')">
+                <span class="edit-indicator">✏️ Edit</span>
+                Servicing Fountain, CO and surrounding areas
+            </p>
             
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div>
-                    <div data-image-id="contact-image class="editable-section cursor-pointer"> onclick="editImage('contact-image')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Contact us" class="w-full rounded-2xl shadow-xl mb-8 loading-placeholder" style="min-height: 300px;">
+                    <div class="editable-section cursor-pointer" data-image-id="contact-image" onclick="editImage('contact-image', 'vsg9.jpg')">
+                        <span class="edit-indicator">🖼️ Change</span>
+                        <img src="" class="loading-placeholder" alt="Contact us" class="w-full rounded-2xl shadow-xl mb-8">
                     </div>
                     
                     <div class="space-y-6">
@@ -439,8 +491,9 @@
                             </svg>
                             <div>
                                 <div class="font-semibold mb-1 text-base">Email</div>
-                                <a href="mailto:coop795@icloud.com" class="editable-section text-emerald-600 hover:underline break-all text-base" data-content-id="contact-email" onclick="editContent('a href="mailto:coop795@icloud.com" class="text-emerald-600 hover:underline break-all text-base" ')"><span class="edit-indicator">✏️ Edit</span>
-                                    Loading...
+                                <a href="mailto:coop795@icloud.com" class="text-emerald-600 hover:underline break-all text-base editable-section" data-content-id="contact-email" onclick="editContent('contact-email')">
+                                    <span class="edit-indicator">✏️ Edit</span>
+                                    coop795@icloud.com
                                 </a>
                             </div>
                         </div>
@@ -451,8 +504,9 @@
                             </svg>
                             <div>
                                 <div class="font-semibold mb-1 text-base">Phone</div>
-                                <a href="tel:+18014401124" class="editable-section text-emerald-600 hover:underline text-base" data-content-id="contact-phone" onclick="editContent('a href="tel:+18014401124" class="text-emerald-600 hover:underline text-base" ')"><span class="edit-indicator">✏️ Edit</span>
-                                    Loading...
+                                <a href="tel:+18014401124" class="text-emerald-600 hover:underline text-base editable-section" data-content-id="contact-phone" onclick="editContent('contact-phone')">
+                                    <span class="edit-indicator">✏️ Edit</span>
+                                    +1 801-440-1124
                                 </a>
                             </div>
                         </div>
@@ -464,8 +518,9 @@
                             </svg>
                             <div>
                                 <div class="font-semibold mb-1 text-base">Address</div>
-                                <div class="editable-section text-gray-600 text-base" data-content-id="contact-address" onclick="editContent('div class="text-gray-600 text-base" ')"><span class="edit-indicator">✏️ Edit</span>
-                                    Loading...
+                                <div class="text-gray-600 text-base editable-section" data-content-id="contact-address" onclick="editContent('contact-address')">
+                                    <span class="edit-indicator">✏️ Edit</span>
+                                    1140 Lindamood Dr.<br>Fountain, CO 80817
                                 </div>
                             </div>
                         </div>
@@ -477,73 +532,42 @@
                     
                     <div id="contact-form" class="space-y-6">
                         <div>
-                            <label class="block text-base font-medium text-gray-700 mb-2">
-                                First and Last name
-                            </label>
+                            <label class="block text-base font-medium text-gray-700 mb-2">First and Last name</label>
                             <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="John Smith">
                         </div>
-
                         <div>
-                            <label class="block text-base font-medium text-gray-700 mb-2">
-                                Email Address
-                            </label>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Email Address</label>
                             <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="john@example.com">
                         </div>
-
                         <div>
-                            <label class="block text-base font-medium text-gray-700 mb-2">
-                                Phone Number
-                            </label>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Phone Number</label>
                             <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="(801) 440-1124">
                         </div>
-
                         <div>
-                            <label class="block text-base font-medium text-gray-700 mb-2">
-                                Project Location (Address)
-                            </label>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Project Location (Address)</label>
                             <input type="text" id="address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="123 Main Street">
                         </div>
-
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-base font-medium text-gray-700 mb-2">
-                                    City
-                                </label>
+                                <label class="block text-base font-medium text-gray-700 mb-2">City</label>
                                 <input type="text" id="city" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="Fountain">
                             </div>
                             <div>
-                                <label class="block text-base font-medium text-gray-700 mb-2">
-                                    State
-                                </label>
+                                <label class="block text-base font-medium text-gray-700 mb-2">State</label>
                                 <input type="text" id="state" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="CO" maxlength="2">
                             </div>
                         </div>
-
                         <div>
-                            <label class="block text-base font-medium text-gray-700 mb-2">
-                                Zip Code
-                            </label>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Zip Code</label>
                             <input type="text" id="zip" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all text-base" placeholder="80817">
                         </div>
-
                         <div>
-                            <label class="block text-base font-medium text-gray-700 mb-2">
-                                Please type your issue here
-                            </label>
+                            <label class="block text-base font-medium text-gray-700 mb-2">Please type your issue here</label>
                             <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none text-base" placeholder="Describe your project or issue..."></textarea>
                         </div>
-
-                        <button onclick="submitForm()" class="w-full px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
-                            Submit
-                        </button>
-
-                        <div id="success-message" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800">
-                            Thank you! We'll get back to you soon.
-                        </div>
-
-                        <div id="error-message" class="hidden p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
-                            Please fill in all required fields.
-                        </div>
+                        <button onclick="submitForm()" class="w-full px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">Submit</button>
+                        <div id="success-message" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800">Thank you! We'll get back to you soon.</div>
+                        <div id="error-message" class="hidden p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">Please fill in all required fields.</div>
                     </div>
                 </div>
             </div>
@@ -555,32 +579,31 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center space-y-4">
                 <div class="flex items-center space-x-3">
-                    <div data-image-id="footer-logo class="editable-section cursor-pointer"> onclick="editImage('footer-logo')"><span class="edit-indicator">🖼️ Change</span>>
-                        <img src="" alt="Footer Logo" class="logo-container-footer loading-placeholder">
-                    </div>
+                    <img src="logo.png" alt="Vanto Services Group" class="logo-container-footer">
                     <div>
-                        <div class="editable-section text-lg font-bold" data-content-id="footer-company-name" onclick="editContent('div class="text-lg font-bold" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</div>
-                        <div class="editable-section text-xs text-gray-400" data-content-id="footer-company-short" onclick="editContent('div class="text-xs text-gray-400" ')"><span class="edit-indicator">✏️ Edit</span>...</div>
+                        <div class="text-lg font-bold editable-section" data-content-id="footer-company-name" onclick="editContent('footer-company-name')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            Vanto Services Group
+                        </div>
+                        <div class="text-xs text-gray-400 editable-section" data-content-id="footer-company-short" onclick="editContent('footer-company-short')">
+                            <span class="edit-indicator">✏️ Edit</span>
+                            VSG
+                        </div>
                     </div>
-                    <a href="index.html" class="ml-4 p-2 hover:bg-gray-800 rounded-lg transition-colors" title="Admin Panel">
-                        <svg class="w-6 h-6 text-gray-400 hover:text-emerald-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </a>
                 </div>
-                <p class="editable-section text-gray-400 text-sm" data-content-id="footer-copyright" onclick="editContent('p class="text-gray-400 text-sm" ')"><span class="edit-indicator">✏️ Edit</span>Loading...</p>
+                <p class="text-gray-400 text-sm editable-section" data-content-id="footer-copyright" onclick="editContent('footer-copyright')">
+                    <span class="edit-indicator">✏️ Edit</span>
+                    © 2025 Vanto Services Group
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-
+        let auth, db, storage;
         let isAdminMode = false;
         let currentEditId = null;
         let currentImageId = null;
-        let storage;
-        let auth, db;
         
         window.addEventListener('load', function() {
             const firebaseConfig = {
@@ -592,20 +615,19 @@
                 appId: "1:531627484684:web:8724b47a144fe4e0e3b029",
                 measurementId: "G-69Q2DH32WC"
             };
-
             firebase.initializeApp(firebaseConfig);
             auth = firebase.auth();
             db = firebase.firestore();
             storage = firebase.storage();
+            loadContent();
             
-            loadContent();            
+            // Check if already logged in
             if (sessionStorage.getItem('vsg_admin_logged_in') === 'true') {
                 isAdminMode = true;
                 document.getElementById('welcome-message').classList.add('hidden');
                 document.getElementById('logged-in-message').classList.remove('hidden');
             }
         });
-
 
         async function login() {
             const password = document.getElementById('admin-password').value;
@@ -627,49 +649,50 @@
             document.getElementById('logged-in-message').classList.add('hidden');
             document.getElementById('edit-form').classList.add('hidden');
             document.getElementById('image-form').classList.add('hidden');
-            alert('✅ Logged out');
+            alert('👋 Logged out successfully');
         }
 
         function toggleAdmin() {
             const panel = document.getElementById('admin-panel');
             panel.classList.toggle('open');
+            const toggleText = document.getElementById('admin-toggle-text');
+            toggleText.textContent = panel.classList.contains('open') ? '✖️ Close' : '📝 Edit Mode';
         }
 
         function editContent(contentId) {
             if (!isAdminMode) {
-                alert('⚠️ Please login first');
+                alert('⚠️ Please login first to edit content');
+                toggleAdmin();
                 return;
             }
             currentEditId = contentId;
             const element = document.querySelector(`[data-content-id="${contentId}"]`);
-            const indicator = element.querySelector('.edit-indicator');
-            const content = indicator ? element.textContent.replace('✏️ Edit', '').trim() : element.textContent.trim();
-            
+            const content = element.textContent.trim().replace('✏️ Edit', '').trim();
             document.getElementById('edit-id').value = contentId;
             document.getElementById('edit-content').value = content;
-            document.getElementById('edit-form').classList.remove('hidden');
-            document.getElementById('image-form').classList.add('hidden');
             document.getElementById('welcome-message').classList.add('hidden');
-            document.getElementById('logged-in-message').classList.add('hidden');
-            document.getElementById('admin-panel').classList.add('open');
+            document.getElementById('image-form').classList.add('hidden');
+            document.getElementById('edit-form').classList.remove('hidden');
+            if (!document.getElementById('admin-panel').classList.contains('open')) {
+                toggleAdmin();
+            }
         }
 
-        function editImage(imageId) {
+        function editImage(imageId, currentSrc) {
             if (!isAdminMode) {
-                alert('⚠️ Please login first');
+                alert('⚠️ Please login first to edit images');
+                toggleAdmin();
                 return;
             }
             currentImageId = imageId;
-            const element = document.querySelector(`[data-image-id="${imageId}"]`);
-            const img = element.querySelector('img');
-            
             document.getElementById('image-id').value = imageId;
-            document.getElementById('current-image').src = img.src;
-            document.getElementById('image-form').classList.remove('hidden');
-            document.getElementById('edit-form').classList.add('hidden');
+            document.getElementById('current-image').src = currentSrc;
             document.getElementById('welcome-message').classList.add('hidden');
-            document.getElementById('logged-in-message').classList.add('hidden');
-            document.getElementById('admin-panel').classList.add('open');
+            document.getElementById('edit-form').classList.add('hidden');
+            document.getElementById('image-form').classList.remove('hidden');
+            if (!document.getElementById('admin-panel').classList.contains('open')) {
+                toggleAdmin();
+            }
         }
 
         async function saveContent() {
@@ -682,8 +705,8 @@
                 });
                 const element = document.querySelector(`[data-content-id="${contentId}"]`);
                 const indicator = element.querySelector('.edit-indicator');
-                element.textContent = newContent;
-                if (indicator) element.appendChild(indicator);
+                element.innerHTML = newContent;
+                if (indicator) element.appendChild(indicator.cloneNode(true));
                 alert('✅ Content saved successfully!');
                 cancelEdit();
             } catch (error) {
@@ -694,13 +717,13 @@
 
         function cancelEdit() {
             document.getElementById('edit-form').classList.add('hidden');
-            document.getElementById('logged-in-message').classList.remove('hidden');
+            document.getElementById('welcome-message').classList.remove('hidden');
         }
 
         function cancelImageEdit() {
             document.getElementById('image-form').classList.add('hidden');
             document.getElementById('file-size-warning').classList.add('hidden');
-            document.getElementById('logged-in-message').classList.remove('hidden');
+            document.getElementById('welcome-message').classList.remove('hidden');
             document.getElementById('image-upload').value = '';
         }
 
@@ -739,8 +762,8 @@
                 });
                 const element = document.querySelector(`[data-image-id="${imageId}"]`);
                 const img = element.querySelector('img');
+                // Add cache busting to force immediate reload
                 img.src = downloadURL + `?t=${new Date().getTime()}`;
-                img.classList.remove('loading-placeholder');
                 alert('✅ Image uploaded successfully!');
                 cancelImageEdit();
             } catch (error) {
@@ -750,54 +773,29 @@
         }
 
         async function loadContent() {
-            console.log('🔄 Starting to load content from Firebase...');
             try {
                 const contentSnapshot = await db.collection('website_content').get();
-                console.log(`✅ Loaded ${contentSnapshot.size} text content items`);
-                
-                if (contentSnapshot.empty) {
-                    console.error('❌ No text content found in Firebase!');
-                } else {
-                    contentSnapshot.forEach(doc => {
-                        const element = document.querySelector(`[data-content-id="${doc.id}"]`);
-                        if (element) {
-                            const indicator = element.querySelector('.edit-indicator');
-                            element.textContent = doc.data().content;
-                            if (indicator) element.appendChild(indicator);
-                            console.log(`✅ Updated text: ${doc.id}`);
-                        } else {
-                            console.warn(`⚠️ No element found for content: ${doc.id}`);
-                        }
-                    });
-                }
-                
+                contentSnapshot.forEach(doc => {
+                    const element = document.querySelector(`[data-content-id="${doc.id}"]`);
+                    if (element) {
+                        const indicator = element.querySelector('.edit-indicator');
+                        element.innerHTML = doc.data().content;
+                        if (indicator) element.appendChild(indicator.cloneNode(true));
+                    }
+                });
                 const imagesSnapshot = await db.collection('website_images').get();
-                console.log(`✅ Loaded ${imagesSnapshot.size} images from Firebase`);
-                
-                if (imagesSnapshot.empty) {
-                    console.error('❌ No images found in Firebase!');
-                } else {
-                    imagesSnapshot.forEach(doc => {
-                        const element = document.querySelector(`[data-image-id="${doc.id}"]`);
-                        if (element) {
-                            const img = element.querySelector('img');
-                            if (img) {
-                                const url = doc.data().url;
-                                const cacheBuster = `?t=${new Date().getTime()}`;
-                                img.src = url + cacheBuster;
-                                img.classList.remove('loading-placeholder');
-                                console.log(`✅ Updated image: ${doc.id}`);
-                            }
-                        } else {
-                            console.warn(`⚠️ No element found for image: ${doc.id}`);
-                        }
-                    });
-                }
-                
-                console.log('✅ Content loading complete!');
+                imagesSnapshot.forEach(doc => {
+                    const element = document.querySelector(`[data-image-id="${doc.id}"]`);
+                    if (element) {
+                        const img = element.querySelector('img');
+                        // Add cache busting parameter to force fresh load
+                        const url = doc.data().url;
+                        const cacheBuster = `?t=${new Date().getTime()}`;
+                        img.src = url + cacheBuster;
+                    }
+                });
             } catch (error) {
-                console.error('❌ Error loading content:', error);
-                console.error('Error details:', error.message);
+                console.log('No stored content found, using defaults');
             }
         }
 
@@ -833,23 +831,18 @@
             const state = document.getElementById('state').value;
             const zip = document.getElementById('zip').value;
             const message = document.getElementById('message').value;
-            
             const successMsg = document.getElementById('success-message');
             const errorMsg = document.getElementById('error-message');
-            
             successMsg.classList.add('hidden');
             errorMsg.classList.add('hidden');
-            
             if (!name || !email || !message) {
                 errorMsg.textContent = 'Please fill in all required fields.';
                 errorMsg.classList.remove('hidden');
                 return;
             }
-
             try {
                 await auth.signInAnonymously();
                 const now = firebase.firestore.Timestamp.now();
-                
                 await db.collection('customers').add({
                     name: name,
                     email: email,
@@ -866,7 +859,6 @@
                     createdAt: now,
                     updatedAt: now
                 });
-
                 successMsg.classList.remove('hidden');
                 document.getElementById('name').value = '';
                 document.getElementById('email').value = '';
@@ -876,7 +868,6 @@
                 document.getElementById('state').value = '';
                 document.getElementById('zip').value = '';
                 document.getElementById('message').value = '';
-                
             } catch (error) {
                 console.error('Error submitting form:', error);
                 errorMsg.textContent = 'Something went wrong. Please try again. Error: ' + error.message;
