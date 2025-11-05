@@ -140,6 +140,14 @@
                 <button onclick="login()" class="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm">Login</button>
             </div>
         </div>
+        
+        <div id="logged-in-message" class="p-6 hidden">
+            <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-4">
+                <h3 class="font-bold text-emerald-900 mb-2 text-sm">✅ Logged In</h3>
+                <p class="text-xs text-emerald-800 mb-3">You can now edit any content on the page!</p>
+                <button onclick="logout()" class="w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors text-sm">🚪 Logout</button>
+            </div>
+        </div>
     </div>
 
     <!-- Header -->
@@ -612,17 +620,36 @@
             db = firebase.firestore();
             storage = firebase.storage();
             loadContent();
+            
+            // Check if already logged in
+            if (sessionStorage.getItem('vsg_admin_logged_in') === 'true') {
+                isAdminMode = true;
+                document.getElementById('welcome-message').classList.add('hidden');
+                document.getElementById('logged-in-message').classList.remove('hidden');
+            }
         });
 
         async function login() {
             const password = document.getElementById('admin-password').value;
             if (password === 'vsgadmin2025') {
                 isAdminMode = true;
+                sessionStorage.setItem('vsg_admin_logged_in', 'true');
                 document.getElementById('welcome-message').classList.add('hidden');
+                document.getElementById('logged-in-message').classList.remove('hidden');
                 alert('✅ Admin mode activated! Click any text or image to edit.');
             } else {
                 alert('❌ Incorrect password');
             }
+        }
+        
+        function logout() {
+            isAdminMode = false;
+            sessionStorage.removeItem('vsg_admin_logged_in');
+            document.getElementById('welcome-message').classList.remove('hidden');
+            document.getElementById('logged-in-message').classList.add('hidden');
+            document.getElementById('edit-form').classList.add('hidden');
+            document.getElementById('image-form').classList.add('hidden');
+            alert('👋 Logged out successfully');
         }
 
         function toggleAdmin() {
