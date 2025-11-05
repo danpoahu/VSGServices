@@ -16,7 +16,6 @@
             scroll-behavior: smooth;
         }
         
-        /* CRITICAL: Prevent iOS Safari from auto-scaling text on orientation change */
         html {
             -webkit-text-size-adjust: 100%;
             -moz-text-size-adjust: 100%;
@@ -24,20 +23,17 @@
             text-size-adjust: 100%;
         }
         
-        /* Mobile-first: Start with larger sizes for portrait */
         body {
             font-size: 20px;
             line-height: 1.6;
         }
         
-        /* Scale down for larger screens */
         @media (min-width: 768px) {
             body {
                 font-size: 16px;
             }
         }
         
-        /* Ensure inputs are big enough */
         input, textarea, select, button {
             font-size: 20px;
         }
@@ -135,7 +131,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="relative" data-image-id="hero-image">
                     <img src="vsg1.jpg" alt="Professional handyman" class="rounded-2xl shadow-2xl w-full h-auto">
                 </div>
             </div>
@@ -148,10 +144,12 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="vsg2.jpg" alt="Fast fixes" class="w-full h-48 object-cover">
+                    <div data-image-id="service1-image">
+                        <img src="vsg2.jpg" alt="Fast fixes" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold mb-3">Fast fixes, zero stress</h3>
-                        <p class="text-gray-600 mb-4 service-card-description">Got leaks, squeaks, and broken bits we fix? We handle quick repairs for homes and businesses so you can get back to your day.</p>
+                        <h3 class="text-xl font-bold mb-3" data-content-id="service1-title">Fast fixes, zero stress</h3>
+                        <p class="text-gray-600 mb-4 service-card-description" data-content-id="service1-desc">Got leaks, squeaks, and broken bits we fix? We handle quick repairs for homes and businesses so you can get back to your day.</p>
                         <div class="flex justify-center">
                             <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                                 Book
@@ -162,10 +160,12 @@
 
                 <!-- Service 2 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="vsg33.jpeg" alt="Renovations" class="w-full h-48 object-cover">
+                    <div data-image-id="service2-image">
+                        <img src="vsg33.jpeg" alt="Renovations" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold mb-3">Spaces refreshed your way</h3>
-                        <p class="text-gray-600 mb-4 service-card-description">Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.</p>
+                        <h3 class="text-xl font-bold mb-3" data-content-id="service2-title">Spaces refreshed your way</h3>
+                        <p class="text-gray-600 mb-4 service-card-description" data-content-id="service2-desc">Dreaming of a room refresh? We handle renovations from start to finish, making your vision a reality.</p>
                         <div class="flex justify-center">
                             <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                                 Book
@@ -176,10 +176,12 @@
 
                 <!-- Service 3 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="vsg11.jpg" alt="Trusted service" class="w-full h-48 object-cover">
+                    <div data-image-id="service3-image">
+                        <img src="vsg11.jpg" alt="Trusted service" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
-                        <p class="text-gray-600 mb-4 service-card-description">We bring top-notch work and friendly service so you can relax knowing it's done right.</p>
+                        <h3 class="text-xl font-bold mb-3" data-content-id="service3-title">Service you can trust</h3>
+                        <p class="text-gray-600 mb-4 service-card-description" data-content-id="service3-desc">We bring top-notch work and friendly service so you can relax knowing it's done right.</p>
                         <div class="flex justify-center">
                             <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                                 Book
@@ -190,10 +192,12 @@
 
                 <!-- Service 4 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="vsg16.jpg" alt="Concrete repair" class="w-full h-48 object-cover">
+                    <div data-image-id="service4-image">
+                        <img src="vsg16.jpg" alt="Concrete repair" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold mb-3">Fast Concrete Repair</h3>
-                        <p class="text-gray-600 mb-4 service-card-description">Cracks, chips, or uneven slabs? We provide reliable concrete repairs that last.</p>
+                        <h3 class="text-xl font-bold mb-3" data-content-id="service4-title">Fast Concrete Repair</h3>
+                        <p class="text-gray-600 mb-4 service-card-description" data-content-id="service4-desc">Cracks, chips, or uneven slabs? We provide reliable concrete repairs that last.</p>
                         <div class="flex justify-center">
                             <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                                 Book
@@ -204,10 +208,12 @@
 
                 <!-- Service 5 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="vsg6.jpg" alt="Concrete sawing" class="w-full h-48 object-cover">
+                    <div data-image-id="service5-image">
+                        <img src="vsg6.jpg" alt="Concrete sawing" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
-                        <p class="text-gray-600 mb-4 service-card-description">Precise cuts for any project. Our concrete sawing services handle structural openings, demo and more, safely and efficiently.</p>
+                        <h3 class="text-xl font-bold mb-3" data-content-id="service5-title">Concrete Sawing</h3>
+                        <p class="text-gray-600 mb-4 service-card-description" data-content-id="service5-desc">Precision cuts for any project. Our concrete sawing services handle structural openings, demo and more, safely and efficiently.</p>
                         <div class="flex justify-center">
                             <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                                 Book
@@ -218,10 +224,12 @@
 
                 <!-- Service 6 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow service-card">
-                    <img src="vsg8.jpg" alt="Professional service" class="w-full h-48 object-cover">
+                    <div data-image-id="service6-image">
+                        <img src="vsg8.jpg" alt="Professional service" class="w-full h-48 object-cover">
+                    </div>
                     <div class="p-6 service-card-content">
-                        <h3 class="text-xl font-bold mb-3">Service you can trust</h3>
-                        <p class="text-gray-600 mb-4 service-card-description">Professional work, transparent pricing, and service that puts you first. We're here to help.</p>
+                        <h3 class="text-xl font-bold mb-3" data-content-id="service6-title">Service you can trust</h3>
+                        <p class="text-gray-600 mb-4 service-card-description" data-content-id="service6-desc">Professional work, transparent pricing, and service that puts you first. We're here to help.</p>
                         <div class="flex justify-center">
                             <button onclick="scrollToContact()" class="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                                 Book
@@ -239,15 +247,15 @@
             <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
                 <div class="flex flex-col lg:flex-row items-center gap-8">
                     <div class="flex-1">
-                        <h2 class="text-3xl font-bold mb-4">Handyman help, just a call away</h2>
+                        <h2 class="text-3xl font-bold mb-4" data-content-id="cta-title">Handyman help, just a call away</h2>
                         <div class="flex items-center gap-2 text-gray-600 mb-6">
                             <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
-                            <a href="tel:+18014401124" class="hover:text-emerald-600 transition-colors">+1 801-440-1124</a>
+                            <a href="tel:+18014401124" class="hover:text-emerald-600 transition-colors" data-content-id="cta-phone">+1 801-440-1124</a>
                         </div>
                     </div>
-                    <div class="flex-shrink-0">
+                    <div class="flex-shrink-0" data-image-id="cta-image">
                         <img src="vsg13.jpg" alt="Tools" class="w-64 h-48 object-cover rounded-xl shadow-lg">
                     </div>
                 </div>
@@ -261,13 +269,15 @@
     <!-- Detailed Services -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-16">Help is just a call away</h2>
+            <h2 class="text-4xl font-bold text-center mb-16" data-content-id="detailed-services-title">Help is just a call away</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Repairs -->
                 <div class="flex flex-col h-full">
-                    <img src="vsg34.jpeg" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
-                    <h3 class="text-xl font-bold mb-3">Repairs</h3>
-                    <p class="text-gray-600 mb-4 text-sm flex-1">Fix leaks, squeaks, and broken bits fast. We handle quick repairs for homes and businesses so you can get back to your day with hassle-free results.</p>
+                    <div data-image-id="detail1-image">
+                        <img src="vsg34.jpeg" alt="Repairs" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-content-id="detail1-title">Repairs</h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1" data-content-id="detail1-desc">Fix leaks, squeaks, and broken bits fast. We handle quick repairs for homes and businesses so you can get back to your day with hassle-free results.</p>
                     <div class="flex justify-center">
                         <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                             Call
@@ -277,9 +287,11 @@
 
                 <!-- Concrete Sawing -->
                 <div class="flex flex-col h-full">
-                    <img src="vsg6.jpg" alt="Concrete Sawing" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
-                    <h3 class="text-xl font-bold mb-3">Concrete Sawing</h3>
-                    <p class="text-gray-600 mb-4 text-sm flex-1">Precision cuts for any project. Our concrete sawing services handle structural openings, demo safely and efficiently.</p>
+                    <div data-image-id="detail2-image">
+                        <img src="vsg6.jpg" alt="Concrete Sawing" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-content-id="detail2-title">Concrete Sawing</h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1" data-content-id="detail2-desc">Precision cuts for any project. Our concrete sawing services handle structural openings, demo safely and efficiently.</p>
                     <div class="flex justify-center">
                         <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                             Call
@@ -289,9 +301,11 @@
 
                 <!-- Walkway Repair -->
                 <div class="flex flex-col h-full">
-                    <img src="vsg5.jpg" alt="Walkway Repair" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
-                    <h3 class="text-xl font-bold mb-3">Walkway Repair</h3>
-                    <p class="text-gray-600 mb-4 text-sm flex-1">Cracked or uneven walkways? We restore concrete pathways to like-new condition, improving safety and curb appeal for your home or business.</p>
+                    <div data-image-id="detail3-image">
+                        <img src="vsg5.jpg" alt="Walkway Repair" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-content-id="detail3-title">Walkway Repair</h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1" data-content-id="detail3-desc">Cracked or uneven walkways? We restore concrete pathways to like-new condition, improving safety and curb appeal for your home or business.</p>
                     <div class="flex justify-center">
                         <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                             Call
@@ -301,9 +315,11 @@
 
                 <!-- Emergency -->
                 <div class="flex flex-col h-full">
-                    <img src="vsg10.jpg" alt="Emergency" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
-                    <h3 class="text-xl font-bold mb-3">Emergency</h3>
-                    <p class="text-gray-600 mb-4 text-sm flex-1">Need urgent help? We're here for you 24/7. Fast, friendly service when you need it most.</p>
+                    <div data-image-id="detail4-image">
+                        <img src="vsg10.jpg" alt="Emergency" class="w-full h-48 object-cover rounded-xl mb-4 shadow-lg">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-content-id="detail4-title">Emergency</h3>
+                    <p class="text-gray-600 mb-4 text-sm flex-1" data-content-id="detail4-desc">Need urgent help? We're here for you 24/7. Fast, friendly service when you need it most.</p>
                     <div class="flex justify-center">
                         <a href="tel:+18014401124" class="inline-block px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors">
                             Call
@@ -322,7 +338,9 @@
             
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div>
-                    <img src="vsg9.jpg" alt="Contact us" class="w-full rounded-2xl shadow-xl mb-8">
+                    <div data-image-id="contact-image">
+                        <img src="vsg9.jpg" alt="Contact us" class="w-full rounded-2xl shadow-xl mb-8">
+                    </div>
                     
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
@@ -331,7 +349,7 @@
                             </svg>
                             <div>
                                 <div class="font-semibold mb-1 text-base">Email</div>
-                                <a href="mailto:coop795@icloud.com" class="text-emerald-600 hover:underline break-all text-base">
+                                <a href="mailto:coop795@icloud.com" class="text-emerald-600 hover:underline break-all text-base" data-content-id="contact-email">
                                     coop795@icloud.com
                                 </a>
                             </div>
@@ -343,7 +361,7 @@
                             </svg>
                             <div>
                                 <div class="font-semibold mb-1 text-base">Phone</div>
-                                <a href="tel:+18014401124" class="text-emerald-600 hover:underline text-base">
+                                <a href="tel:+18014401124" class="text-emerald-600 hover:underline text-base" data-content-id="contact-phone">
                                     +1 801-440-1124
                                 </a>
                             </div>
@@ -356,7 +374,7 @@
                             </svg>
                             <div>
                                 <div class="font-semibold mb-1 text-base">Address</div>
-                                <div class="text-gray-600 text-base">
+                                <div class="text-gray-600 text-base" data-content-id="contact-address">
                                     1140 Lindamood Dr.<br>
                                     Fountain, CO 80817
                                 </div>
@@ -450,8 +468,8 @@
                 <div class="flex items-center space-x-3">
                     <img src="logo.png" alt="Vanto Services Group" class="logo-container-footer">
                     <div>
-                        <div class="text-lg font-bold">Vanto Services Group</div>
-                        <div class="text-xs text-gray-400">VSG</div>
+                        <div class="text-lg font-bold" data-content-id="footer-company-name">Vanto Services Group</div>
+                        <div class="text-xs text-gray-400" data-content-id="footer-company-short">VSG</div>
                     </div>
                     <a href="admin.html" class="ml-4 p-2 hover:bg-gray-800 rounded-lg transition-colors" title="Admin Panel">
                         <svg class="w-6 h-6 text-gray-400 hover:text-emerald-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -460,17 +478,15 @@
                         </svg>
                     </a>
                 </div>
-                <p class="text-gray-400 text-sm">© 2025 Vanto Services Group</p>
+                <p class="text-gray-400 text-sm" data-content-id="footer-copyright">© 2025 Vanto Services Group</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Wait for Firebase to load
         let auth, db;
         
         window.addEventListener('load', function() {
-            // Firebase Configuration
             const firebaseConfig = {
                 apiKey: "AIzaSyCOUxfMyfD5_Q08QE4eIHCuF69k4fD99kw",
                 authDomain: "vantosg-65652.firebaseapp.com",
@@ -481,44 +497,16 @@
                 measurementId: "G-69Q2DH32WC"
             };
 
-            // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             auth = firebase.auth();
             db = firebase.firestore();
             
-            // Load content from database
             loadContent();
         });
 
         async function loadContent() {
             try {
-                // Load text content from Firestore
                 const contentSnapshot = await db.collection('website_content').get();
-                
-                const contentMap = {};
-                contentSnapshot.forEach(doc => {
-                    contentMap[doc.id] = doc.data().content;
-                });
-                
-                // Map content IDs to their selectors
-                const mappings = {
-                    'hero-title': 'h1.text-4xl',
-                    'hero-subtitle': 'p.text-xl.text-gray-300',
-                    'contact-title': '#contact h2.text-4xl',
-                    'contact-subtitle': '#contact p.text-center.text-gray-600',
-                };
-                
-                // Update elements using mappings
-                for (const [contentId, selector] of Object.entries(mappings)) {
-                    if (contentMap[contentId]) {
-                        const element = document.querySelector(selector);
-                        if (element) {
-                            element.textContent = contentMap[contentId];
-                        }
-                    }
-                }
-                
-                // Also try to find elements with data-content-id attribute
                 contentSnapshot.forEach(doc => {
                     const element = document.querySelector(`[data-content-id="${doc.id}"]`);
                     if (element) {
@@ -526,7 +514,6 @@
                     }
                 });
                 
-                // Load images from Firestore
                 const imagesSnapshot = await db.collection('website_images').get();
                 imagesSnapshot.forEach(doc => {
                     const element = document.querySelector(`[data-image-id="${doc.id}"]`);
@@ -535,18 +522,12 @@
                         if (img) {
                             img.src = doc.data().url;
                         }
-                    } else {
-                        // Try direct img selector
-                        const img = document.querySelector(`img[data-image-id="${doc.id}"]`);
-                        if (img) {
-                            img.src = doc.data().url;
-                        }
                     }
                 });
                 
-                console.log('Content loaded from Firebase successfully');
+                console.log('Content loaded from Firebase');
             } catch (error) {
-                console.log('Content loading from DB failed, using defaults:', error);
+                console.log('Using default content:', error);
             }
         }
 
@@ -587,7 +568,6 @@
             const successMsg = document.getElementById('success-message');
             const errorMsg = document.getElementById('error-message');
             
-            // Hide messages
             successMsg.classList.add('hidden');
             errorMsg.classList.add('hidden');
             
@@ -598,12 +578,10 @@
             }
 
             try {
-                // Sign in anonymously
                 await auth.signInAnonymously();
                 
                 const now = firebase.firestore.Timestamp.now();
                 
-                // Add to customers collection
                 await db.collection('customers').add({
                     name: name,
                     email: email,
