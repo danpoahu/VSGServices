@@ -523,7 +523,10 @@
                     if (element) {
                         const img = element.querySelector('img');
                         if (img) {
-                            img.src = doc.data().url;
+                            // Add cache busting parameter to force fresh load
+                            const url = doc.data().url;
+                            const cacheBuster = `?t=${new Date().getTime()}`;
+                            img.src = url + cacheBuster;
                         }
                     }
                 });

@@ -762,7 +762,8 @@
                 });
                 const element = document.querySelector(`[data-image-id="${imageId}"]`);
                 const img = element.querySelector('img');
-                img.src = downloadURL;
+                // Add cache busting to force immediate reload
+                img.src = downloadURL + `?t=${new Date().getTime()}`;
                 alert('✅ Image uploaded successfully!');
                 cancelImageEdit();
             } catch (error) {
@@ -787,7 +788,10 @@
                     const element = document.querySelector(`[data-image-id="${doc.id}"]`);
                     if (element) {
                         const img = element.querySelector('img');
-                        img.src = doc.data().url;
+                        // Add cache busting parameter to force fresh load
+                        const url = doc.data().url;
+                        const cacheBuster = `?t=${new Date().getTime()}`;
+                        img.src = url + cacheBuster;
                     }
                 });
             } catch (error) {
