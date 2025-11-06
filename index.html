@@ -34,8 +34,21 @@
         .loading-placeholder { background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         
+        /* Auto-hiding header on scroll */
+        header {
+            transition: transform 0.3s ease-in-out;
+        }
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+        
         /* Mobile optimizations - phones only (< 768px) */
         @media (max-width: 767px) {
+            /* Hide footer gear icon on mobile */
+            .footer-admin-link {
+                display: none !important;
+            }
+            
             /* Improve touch targets for mobile */
             button, a {
                 min-height: 44px;
@@ -47,7 +60,7 @@
                 padding-bottom: 3rem !important;
             }
             
-            /* Optimize form inputs for mobile */
+            /* Optimize form inputs for mobile - LARGER text */
             input[type="text"], 
             input[type="email"], 
             input[type="tel"], 
@@ -55,12 +68,54 @@
             select {
                 padding: 14px;
                 border-width: 2px;
+                font-size: 16px !important;
+            }
+            
+            /* Increase base text size for better readability */
+            body {
+                font-size: 18px !important;
+            }
+            
+            /* Service cards text */
+            .service-card h3 {
+                font-size: 1.25rem !important;
+            }
+            
+            .service-card p {
+                font-size: 1rem !important;
+            }
+            
+            /* Labels and other text */
+            label {
+                font-size: 1rem !important;
             }
             
             /* Improve readability on small screens */
             h1.mobile-hero-title { 
                 font-size: 2rem !important; 
                 line-height: 1.2 !important; 
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            /* Paragraph text in hero and sections */
+            .text-xl {
+                font-size: 1.125rem !important;
+            }
+            
+            /* Footer text */
+            footer {
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Landscape mode specific - auto-hide header */
+        @media (max-width: 932px) and (orientation: landscape) {
+            /* Enable header auto-hide in landscape */
+            body.landscape-scroll header.header-hidden {
+                transform: translateY(-100%);
             }
         }
     </style>
@@ -468,7 +523,7 @@
                         <div class="text-lg font-bold" data-content-id="footer-company-name">Loading...</div>
                         <div class="text-xs text-gray-400" data-content-id="footer-company-short">...</div>
                     </div>
-                    <a href="admin.html" class="ml-4 p-2 hover:bg-gray-800 rounded-lg transition-colors" title="Admin Panel">
+                    <a href="admin.html" class="footer-admin-link ml-4 p-2 hover:bg-gray-800 rounded-lg transition-colors" title="Admin Panel">
                         <svg class="w-6 h-6 text-gray-400 hover:text-emerald-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -482,6 +537,35 @@
 
     <script>
         let auth, db;
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        
+        // Auto-hide header on scroll in landscape mode
+        window.addEventListener('scroll', function() {
+            // Only apply in landscape mode on small screens
+            if (window.innerWidth <= 932 && window.matchMedia("(orientation: landscape)").matches) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down & past 100px
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('header-hidden');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            } else {
+                // Not in landscape, make sure header is visible
+                header.classList.remove('header-hidden');
+            }
+        });
+        
+        // Reset header visibility on orientation change
+        window.addEventListener('orientationchange', function() {
+            header.classList.remove('header-hidden');
+            lastScrollTop = 0;
+        });
         
         window.addEventListener('load', function() {
             const firebaseConfig = {

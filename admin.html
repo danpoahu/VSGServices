@@ -65,6 +65,14 @@
             cursor: pointer; font-weight: 600;
         }
         
+        /* Auto-hiding header on scroll */
+        header {
+            transition: transform 0.3s ease-in-out;
+        }
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+        
         /* Hide admin toggle on mobile phones only */
         @media (max-width: 767px) {
             .admin-toggle {
@@ -88,7 +96,7 @@
                 padding-bottom: 3rem !important;
             }
             
-            /* Optimize form inputs for mobile */
+            /* Optimize form inputs for mobile - LARGER text */
             input[type="text"], 
             input[type="email"], 
             input[type="tel"], 
@@ -96,12 +104,54 @@
             select {
                 padding: 14px;
                 border-width: 2px;
+                font-size: 16px !important;
+            }
+            
+            /* Increase base text size for better readability */
+            body {
+                font-size: 18px !important;
+            }
+            
+            /* Service cards text */
+            .service-card h3 {
+                font-size: 1.25rem !important;
+            }
+            
+            .service-card p {
+                font-size: 1rem !important;
+            }
+            
+            /* Labels and other text */
+            label {
+                font-size: 1rem !important;
             }
             
             /* Improve readability on small screens */
             h1.mobile-hero-title { 
                 font-size: 2rem !important; 
                 line-height: 1.2 !important; 
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            /* Paragraph text in hero and sections */
+            .text-xl {
+                font-size: 1.125rem !important;
+            }
+            
+            /* Footer text */
+            footer {
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Landscape mode specific - auto-hide header */
+        @media (max-width: 932px) and (orientation: landscape) {
+            /* Enable header auto-hide in landscape */
+            body.landscape-scroll header.header-hidden {
+                transform: translateY(-100%);
             }
         }
     </style>
@@ -644,6 +694,35 @@
         let isAdminMode = false;
         let currentEditId = null;
         let currentImageId = null;
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        
+        // Auto-hide header on scroll in landscape mode
+        window.addEventListener('scroll', function() {
+            // Only apply in landscape mode on small screens
+            if (window.innerWidth <= 932 && window.matchMedia("(orientation: landscape)").matches) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down & past 100px
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('header-hidden');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            } else {
+                // Not in landscape, make sure header is visible
+                header.classList.remove('header-hidden');
+            }
+        });
+        
+        // Reset header visibility on orientation change
+        window.addEventListener('orientationchange', function() {
+            header.classList.remove('header-hidden');
+            lastScrollTop = 0;
+        });
         
         window.addEventListener('load', function() {
             const firebaseConfig = {
