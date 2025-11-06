@@ -64,6 +64,46 @@
             box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
             cursor: pointer; font-weight: 600;
         }
+        
+        /* Hide admin toggle on mobile phones only */
+        @media (max-width: 767px) {
+            .admin-toggle {
+                display: none;
+            }
+            .admin-panel {
+                display: none;
+            }
+        }
+        
+        /* Mobile optimizations for content viewing */
+        @media (max-width: 767px) {
+            /* Improve touch targets for mobile */
+            button, a {
+                min-height: 44px;
+            }
+            
+            /* Better spacing on mobile */
+            .hero-mobile-spacing {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            /* Optimize form inputs for mobile */
+            input[type="text"], 
+            input[type="email"], 
+            input[type="tel"], 
+            textarea, 
+            select {
+                padding: 14px;
+                border-width: 2px;
+            }
+            
+            /* Improve readability on small screens */
+            h1.mobile-hero-title { 
+                font-size: 2rem !important; 
+                line-height: 1.2 !important; 
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -190,11 +230,11 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="bg-gray-900 text-white py-20 lg:py-32">
+    <section class="bg-gray-900 text-white py-12 lg:py-32 hero-mobile-spacing">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight editable-section" data-content-id="hero-title" onclick="editContent('hero-title')">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight mobile-hero-title editable-section" data-content-id="hero-title" onclick="editContent('hero-title')">
                         <span class="edit-indicator">✏️ Edit</span>
                         Handyman help, hassle-free results
                     </h1>
