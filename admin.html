@@ -871,6 +871,11 @@
                 return;
             }
             try {
+                // Ensure user is authenticated before uploading
+                if (!auth.currentUser) {
+                    await auth.signInAnonymously();
+                }
+                
                 const storageRef = storage.ref();
                 const imageRef = storageRef.child(`website_images/${imageId}_${Date.now()}`);
                 await imageRef.put(file);
